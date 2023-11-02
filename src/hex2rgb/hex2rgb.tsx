@@ -2,6 +2,10 @@ import React, { ChangeEvent, useState } from "react"
 import './hex2rgb.css'
 
 export default function Hex2rgb() {
+    const [form, setForm] = useState({ 
+        hexColor: '#'
+    })
+
     const [rgbColor, setColor] = useState('rgb (0, 0, 0)')
 
     function converter(hex: string) {
@@ -18,8 +22,11 @@ export default function Hex2rgb() {
         }
     }
 
-    function onChange(e: ChangeEvent<HTMLInputElement>) {
-        const { value } = e.target;
+    const onChange = ({target}: ChangeEvent<HTMLInputElement>) => {
+        console.log(target.name)
+        const { name, value } = target;
+        setForm((prevForm) => ({...prevForm, [name]: value}))
+
         if (value.length === 7) {
             converter(value)
         }
@@ -28,7 +35,7 @@ export default function Hex2rgb() {
     return (
         <div className="hex2rgb">
             <form className="hex2rgbForm">
-                <input className="hexInput" maxLength={7} type="text" name="hexColor" onChange={(e) => onChange(e)} />
+                <input className="hexInput" maxLength={7} type="text" name="hexColor" value={form.hexColor} onChange={onChange} />
                 <div className="hexOutput">{rgbColor}</div>
             </form>
         </div>
