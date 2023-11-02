@@ -1,0 +1,31 @@
+.hex2rgb{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexInput{
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.hexInput::before{
+    content: '#dsjdksjdk';
+}
+
+.hexInput:focus-visible{
+   outline-color: #6b87ff;
+}
+
+.hexOutput{
+    margin-top: 5px;
+    text-align: center;
+    color: #ffffff;
+    width: 197.5px;
+    height: 20.5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
